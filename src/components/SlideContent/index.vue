@@ -119,74 +119,53 @@ section.slide-content(ref="slideContainer" :class="[type, border ? 'border' : ''
 
 .slide-navigation
   .btn
-    background rgba(#fff, .3)
-    border 1px solid rgba(#000, .3)
+    background #fff
+    border 1px solid #444
     border-radius 100%
-    backdrop-filter blur(5px)
     box-shadow 0 0 1px 1px rgba(#fff, .5), 0 0 10px 2px rgba(#000, .2)
     cursor pointer
     font-size 0
     font-weight bold
-    height 60px
+    height 40px
     outline none
     position absolute
     top 50%
     transform translateY(-50%)
     transition .3s all
     user-select none
-    width 60px
+    width 40px
     z-index 1
     &:hover
-      background rgba(#000, .3)
+      background #444
+      border 1px solid #fff
+      box-shadow 0 0 10px 10px rgba(#fff, .5)
       color #fff
+      transform translateY(-50%) scale(1.2)
       &:before,
       &:after
-        background #fff
+        color #fff
     &:before,
     &:after
-      background #000
-      border-radius 10px
+      font-family 'Font Awesome 6 Free'
+      background transparent
       content ""
       display flex
-      height 50%
-      width 5px
-    +mobile()
-      height 30px
-      width 30px
-      &:before,
-      &:after
-        width 3px
-        height 10px
+      color #444
+      font-size 1.5rem
+      text-rendering auto
+      -webkit-font-smoothing: antialiased
+      transform translateX(5px)
   .prev
     left 10px
     &:active
-      transform translateY(-50%) translateX(10px)
+      transform translateX(-5px) translateY(-50%) scale(1.2)
     &:before
-      transform rotate(45deg) translate(17px, -10px)
-    &:after
-      transform rotate(-45deg) translate(18px, 10px)
-    +mobile()
-      &:active
-        transform translateY(-50%) translateX(10px)
-      &:before
-        transform rotate(45deg) translate(5px, -3px)
-      &:after
-        transform rotate(-45deg) translate(6px, 2px)
+      content "\f053"
 
   .next
     right 10px
     &:active
-      transform translateY(-50%) translateX(-10px)
+      transform translateX(5px) translateY(-50%) scale(1.2)
     &:before
-      transform rotate(-45deg) translate(11px, 19px)
-    &:after
-      transform rotate(45deg) translate(11px, -19px)
-    +mobile()
-      &:active
-        transform translateY(-50%) translateX(10px)
-      &:before
-        transform rotate(45deg) translate(11px, 1px)
-      &:after
-        transform rotate(-45deg) translate(10px, 0px)
-
+      content "\f054"
 </style>
