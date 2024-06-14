@@ -19,6 +19,6 @@ describe('AppVersion test', () => {
     expect(wrapper.vm.vueVersion).toBe(vueVersion)
   })
   it('AppVersion validation text version', () => {
-    expect(wrapper.text()).toBe(`Versão Vue${vueVersion}Versão SlideContent${appVersion}`)
+    expect(wrapper.text()).toBe(`Vue${vueVersion}SlideContent${appVersion}`)
   })
 })
