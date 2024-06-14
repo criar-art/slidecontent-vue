@@ -9,17 +9,20 @@ const vueVersion = pkg.dependencies.vue.replace('^', '');
 
 <template lang='pug'>
 p.version
-  | {{ t('version') }} Vue
+  | Vue
   b {{ vueVersion }}
 p.version
-  | {{ t('version') }} SlideContent
+  | SlideContent
   b {{ appVersion }}
 </template>
 
 <style lang='stylus'>
 .version
+  font-size 1.2rem
   margin 0
   line-height 2rem
+  +mobile()
+    font-size 1em
   b
     margin-left .5rem
 </style>
