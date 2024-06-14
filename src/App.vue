@@ -14,6 +14,14 @@ AppFooter
 <style lang='stylus'>
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("assets/webfonts/fa-solid-900.woff2") format("woff2"), url("assets/webfonts/fa-solid-900.ttf") format("truetype");
+}
+
 body
   margin 0
   padding 0
