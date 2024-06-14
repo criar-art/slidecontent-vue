@@ -18,6 +18,8 @@ RouterLink.logo(to='/')
   display inline-block
   h1
     font-size 2.5em
+    margin-bottom 1rem
+    font-weight bold
     +mobile()
       font-size 1.2em
 </style>

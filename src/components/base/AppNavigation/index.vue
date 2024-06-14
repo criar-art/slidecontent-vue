@@ -31,14 +31,17 @@ const { t } = useI18n();
   a.link
     padding 1rem 1.5rem 1rem 1rem
     margin 0.5rem
-    background #eee
     color #2c3e50
+    border 2px solid #eee
     border-radius 10px
     text-decoration none
     width 100%
     justify-content center
     align-items center
     display flex
+    font-weight bold
+    transition .3s all
+    box-shadow 0 10px 10px rgba(0, 0, 0, .06), 0 0 0 2px #fff
     +mobile()
       width calc(100% - 60px)
     svg
@@ -47,8 +50,9 @@ const { t } = useI18n();
       outline none
       fill #2c3e50
     &.router-link-exact-active
-      background #289f6a
-      color #fff
+      background #fff
+      color #289f6a
+      border 2px solid #289f6a
       svg
-        fill #fff
+        fill #289f6a
 </style>

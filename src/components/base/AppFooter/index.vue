@@ -26,8 +26,8 @@ footer.footer
     justify-content center
     text-decoration none
     flex-direction column
-    p
-      margin 0
+    width max-content
+    margin 0 auto
     +mobile()
       font-size 1em
   svg

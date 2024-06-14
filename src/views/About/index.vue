@@ -6,6 +6,6 @@ const { t } = useI18n();
 </script>
 
 <template lang="pug">
-section.page(style="padding: 2rem;")
+section.page
   p {{ t("about") }}
 </template>

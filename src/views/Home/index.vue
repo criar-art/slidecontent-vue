@@ -11,7 +11,7 @@ const text = textExample(t("god_faith"), t("city"));
 </script>
 
 <template lang="pug">
-section.page
+section
   .example
     h2.slide-title
       svg(width="60px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512")
@@ -22,8 +22,8 @@ section.page
     SlideContent(name="Exemplo 1" type="infinite" :nav="true" :animation="{ 'disabled': true }")
       SlideItem(:title="t('city')" img="./assets/ermelino.jpg")
       SlideItem.favela.actived(:title="t('god_faith')" img="./assets/faveladascriancas.jpg")
-    SlideSource
-      pre {{ text.one }}
+    //- SlideSource
+    //-   pre {{ text.one }}
   .example
     h2.slide-title
       svg(viewBox="0 -21 511.987 511" width="50px" xmlns="http://www.w3.org/2000/svg")
@@ -33,8 +33,8 @@ section.page
     SlideContent(name="Exemplo 2" type="simple" :nav="false")
       SlideItem.actived(:title="t('city')" img="./assets/ermelino.jpg")
       SlideItem.favela(:title="t('god_faith')" img="./assets/faveladascriancas.jpg")
-    SlideSource
-      pre {{ text.two }}
+    //- SlideSource
+    //-   pre {{ text.two }}
   .example
     h2.slide-title
       svg(xmlns="http://www.w3.org/2000/svg" width="60px" viewBox="0 0 94.294 94.294")
@@ -43,8 +43,8 @@ section.page
     SlideContent(name="Exemplo 3" type="simple" :nav="true" :animation="{ direction: 'prev', time: 10000 }")
       SlideItem.actived(:title="t('city')" img="./assets/ermelino.jpg")
       SlideItem.favela(:title="t('god_faith')" img="./assets/faveladascriancas.jpg")
-    SlideSource
-      pre {{ text.three }}
+    //- SlideSource
+    //-   pre {{ text.three }}
   .example
     h2.slide-title
       svg(xmlns="http://www.w3.org/2000/svg" width="60px" height="60px" viewBox="0 0 24 24")
@@ -53,8 +53,8 @@ section.page
     SlideContent(name="Exemplo 4" type="infinite" :nav="true" border)
       SlideItem(:title="t('city')" img="./assets/ermelino.jpg")
       SlideItem.favela.actived(:title="t('god_faith')" img="./assets/faveladascriancas.jpg")
-    SlideSource
-      pre {{ text.four }}.
+    //- SlideSource
+    //-   pre {{ text.four }}.
   .example
     h2.slide-title
       svg(xmlns="http://www.w3.org/2000/svg" width="60px" height="60px" viewBox="0 0 1024 1024")
@@ -63,11 +63,21 @@ section.page
     SlideContent(name="Exemplo 5" type="infinite" :nav="true" border squared)
       SlideItem(:title="t('city')" img="./assets/ermelino.jpg")
       SlideItem.favela.actived(:title="t('god_faith')" img="./assets/faveladascriancas.jpg")
-    SlideSource
-      pre {{ text.five }}
+    //- SlideSource
+    //-   pre {{ text.five }}
 </template>
 
 <style lang="stylus">
+.example
+  padding-bottom 6rem
+  padding-top 2rem
+  box-shadow 0 15px 25px rgba(0, 0, 0, .06)
+  &:first-of-type
+    margin-top 2rem
+    padding-top 0
+    border-top 1px solid #eee
+    box-shadow 0 15px 25px rgba(0, 0, 0, .06), 0 -5px 15px rgba(0, 0, 0, .02)
+
 .slide-title, h3
   align-items center
   display flex
@@ -76,13 +86,11 @@ section.page
     margin-right .5em
 
 .slide-title
-  border-top 3px dashed #ccc
+  padding 2rem 0
   color #289f6a
   font-size 2em
-  margin 2em 0
-  padding-top 2em
   +mobile()
-   font-size 1em
+    font-size 1em
   svg
     fill #289f6a
 .favela
