@@ -33,6 +33,7 @@ body
     display flex
     height 20px
     background #289f6a
+    background linear-gradient(90deg, rgba(40,159,106,1) 46%, rgba(100,126,255,1) 100%)
     box-shadow 0 0 0 1px #fff, 0 0 20px rgba(0,0,0,.4)
 
 #app
@@ -41,7 +42,7 @@ body
   color #2c3e50
   font-family 'Avenir', Helvetica, Arial, sans-serif
   text-align center
-  min-height 100vh
+  min-height calc(100vh - 40px)
   display flex
   flex-direction column
 
