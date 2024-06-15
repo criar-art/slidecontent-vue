@@ -3,9 +3,9 @@
   "version": "1.3.0",
   "private": false,
   "author": "lucasferreiralimax",
-  "repository": "https://github.com/lucasferreiralimax/slidecontent-vue",
+  "repository": "https://github.com/criar-art/slidecontent-vue",
   "bugs": {
-    "url": "https://github.com/lucasferreiralimax/slidecontent-vue/issues"
+    "url": "https://github.com/criar-art/slidecontent-vue/issues"
   },
   "scripts": {
     "dev": "vite",

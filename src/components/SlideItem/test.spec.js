@@ -31,7 +31,7 @@ describe('SlideItem', () => {
     await wrapper.setProps({
       title: 'SlideContentVue',
       img: './assets/test.jpg',
-      url: 'https://github.com/lucasferreiralimax/slidecontent-vue',
+      url: 'https://github.com/criar-art/slidecontent-vue',
       target: '_blank',
     })
     expect(wrapper.vm.title).toBeDefined()
@@ -44,12 +44,12 @@ describe('SlideItem', () => {
     await wrapper.setProps({
       title: 'SlideContentVue',
       img: './assets/test.jpg',
-      url: 'https://github.com/lucasferreiralimax/slidecontent-vue',
+      url: 'https://github.com/criar-art/slidecontent-vue',
       target: '_self',
     })
     expect(wrapper.vm.title).toBe('SlideContentVue')
     expect(wrapper.vm.img).toBe('./assets/test.jpg')
-    expect(wrapper.vm.url).toBe('https://github.com/lucasferreiralimax/slidecontent-vue')
+    expect(wrapper.vm.url).toBe('https://github.com/criar-art/slidecontent-vue')
     expect(wrapper.vm.target).toBe('_self')
   })
 })
