@@ -87,12 +87,12 @@ section
 
 .slide-title
   padding 2rem 0
-  color #289f6a
+  color var(--primary)
   font-size 2em
   +mobile()
     font-size 1em
   svg
-    fill #289f6a
+    fill var(--primary)
 .favela
   h1
     font-family 'Great Vibes', cursive

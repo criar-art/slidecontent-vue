@@ -24,22 +24,31 @@ AppFooter
 
 @import "./_reset.styl"
 
+:root
+  --primary #289f6a
+  --secondary #647eff
+  --main-color #2c3e50
+
+html
+  background var(--primary)
+
 body
   margin 0
   padding 0
+  background #fff
   &:before,
   &:after
     content ""
     display flex
     height 20px
-    background #289f6a
-    background linear-gradient(90deg, rgba(40,159,106,1) 46%, rgba(100,126,255,1) 100%)
+    background var(--primary)
+    background linear-gradient(90deg, var(--primary) 46%, var(--secondary) 100%)
     box-shadow 0 0 0 1px #fff, 0 0 20px rgba(0,0,0,.4)
 
 #app
   -moz-osx-font-smoothing grayscale
   -webkit-font-smoothing antialiased
-  color #2c3e50
+  color var(--main-color)
   font-family 'Avenir', Helvetica, Arial, sans-serif
   text-align center
   min-height calc(100vh - 40px)

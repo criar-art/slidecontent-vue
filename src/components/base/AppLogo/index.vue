@@ -14,7 +14,7 @@ RouterLink.logo(to='/')
 <style lang='stylus'>
 .logo
   text-decoration none
-  color #2c3e50
+  color var(--main-color)
   display inline-block
   h1
     font-size 2.5em

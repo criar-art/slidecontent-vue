@@ -31,7 +31,7 @@ const { t } = useI18n();
   a.link
     padding 1rem 1.5rem 1rem 1rem
     margin 0.5rem
-    color #2c3e50
+    color var(--main-color)
     border 2px solid #eee
     border-radius 10px
     text-decoration none
@@ -48,11 +48,11 @@ const { t } = useI18n();
       width 25px
       margin-right 0.5rem
       outline none
-      fill #2c3e50
+      fill var(--main-color)
     &.router-link-exact-active
       background #fff
-      color #289f6a
-      border 2px solid #289f6a
+      color var(--primary)
+      border 2px solid var(--primary)
       svg
-        fill #289f6a
+        fill var(--primary)
 </style>
