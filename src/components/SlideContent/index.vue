@@ -1,9 +1,9 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-import { useI18n } from "vue-i18n";
-const { t } = useI18n();
+import { ref, onMounted, onUnmounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 
-const slideContainer = ref()
+const { t } = useI18n();
+const slideContainer = ref(null);
 const props = defineProps({
   name: String,
   type: String,
@@ -16,75 +16,68 @@ const props = defineProps({
 let slideAnimationInitial = null;
 let slideAnimationOptions = null;
 
-onMounted(() => {
-  if(slideContainer.value.querySelectorAll('.slide-item')) {
-    slideAnimation();
-  }
-});
-
-onUnmounted(() => {
-  clearInterval(slideAnimationInitial)
-  clearInterval(slideAnimationOptions)
-})
-
-const slideAnimation = () => {
-  slideAnimationInitial = setInterval(() => {
-    nextHandler()
-  }, 6000);
-
-  slideAnimationInitial
-
-  if(props.animation) {
-    clearInterval(slideAnimationInitial)
+const startSlideAnimation = () => {
+  slideAnimationInitial = setInterval(nextHandler, 6000);
+  if (props.animation) {
+    clearInterval(slideAnimationInitial);
     slideAnimationOptions = setInterval(() => {
-      if(props.animation.direction == "prev") {
-        prevHandler()
+      if (props.animation.direction === 'prev') {
+        prevHandler();
       } else {
-        nextHandler()
+        nextHandler();
       }
     }, props.animation.time);
 
-    if(props.animation.disabled) {
-      clearInterval(slideAnimationOptions)
-    } else {
-      slideAnimationOptions
+    if (props.animation.disabled) {
+      clearInterval(slideAnimationOptions);
     }
   }
 };
 
-function prevHandler () {
-  let slides = slideContainer.value.querySelectorAll('.slide-item')
+const stopSlideAnimation = () => {
+  clearInterval(slideAnimationInitial);
+  clearInterval(slideAnimationOptions);
+};
 
-  for(let item of slides) {
-    if(item.classList.contains("actived")) {
-      if(item.previousElementSibling) {
-        item.classList.remove("actived")
-        item.previousElementSibling.classList.add("actived")
+const prevHandler = () => {
+  const slides = slideContainer.value.querySelectorAll('.slide-item');
+  for (const item of slides) {
+    if (item.classList.contains('actived')) {
+      item.classList.remove('actived');
+      if (item.previousElementSibling) {
+        item.previousElementSibling.classList.add('actived');
       } else {
-        item.classList.remove("actived")
-        slides[slides.length - 1].classList.add("actived")
+        slides[slides.length - 1].classList.add('actived');
       }
       break;
     }
   }
 };
 
-function nextHandler () {
-  let slides = slideContainer.value.querySelectorAll('.slide-item')
-
-  for(let item of slides) {
-    if(item.classList.contains("actived")) {
-      if(item.nextElementSibling) {
-        item.classList.remove("actived")
-        item.nextElementSibling.classList.add("actived")
-        break;
+const nextHandler = () => {
+  const slides = slideContainer.value.querySelectorAll('.slide-item');
+  for (const item of slides) {
+    if (item.classList.contains('actived')) {
+      item.classList.remove('actived');
+      if (item.nextElementSibling) {
+        item.nextElementSibling.classList.add('actived');
       } else {
-        item.classList.remove("actived")
-        slides[0].classList.add("actived")
+        slides[0].classList.add('actived');
       }
+      break;
     }
   }
 };
+
+onMounted(() => {
+  if (slideContainer.value.querySelectorAll('.slide-item').length > 0) {
+    startSlideAnimation();
+  }
+});
+
+onUnmounted(() => {
+  stopSlideAnimation();
+});
 </script>
 
 <template lang="pug">
@@ -92,9 +85,9 @@ section.slide-content(ref="slideContainer" :class="[type, border ? 'border' : ''
   div.slide-slots
     slot
   .slide-navigation(v-if="nav")
-    button.btn.prev(type="button" name="button" @click="prevHandler")
+    button.btn.prev(type="button" @click="prevHandler")
       | {{ t("to_left") }}
-    button.btn.next(type="button" name="button" @click="nextHandler")
+    button.btn.next(type="button" @click="nextHandler")
       | {{ t("to_right") }}
 </template>
 
