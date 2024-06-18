@@ -10,7 +10,7 @@ section.page
   p {{ t("about") }}
   div.examples
     a.example(href="https://slidecontent-angularjs.web.app" target="_blank")
-      img(src="@/assets/logos/logo-angular.svg" width="150" alt="Agunlar Logo")
+      img(src="@/assets/logos/logo-angular.svg" width="150" alt="Angular Logo")
       | SlideContent Angular
     a.example(href="https://slidecontent-ember.web.app" target="_blank")
       img(src="@/assets/logos/logo-ember.svg" width="80" alt="Ember Logo")
