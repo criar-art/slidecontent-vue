@@ -12,9 +12,18 @@ const props = defineProps({
   border: Boolean,
   squared: Boolean,
 });
+const activeSlideIndex = ref(0);
+const slides = ref([]);
 
 let slideAnimationInitial = null;
 let slideAnimationOptions = null;
+
+const updateActiveSlide = (index) => {
+  slides.value.forEach((slide, i) => {
+    slide.classList.toggle('actived', i === index);
+  });
+  activeSlideIndex.value = index;
+};
 
 const startSlideAnimation = () => {
   slideAnimationInitial = setInterval(nextHandler, 6000);
@@ -40,37 +49,26 @@ const stopSlideAnimation = () => {
 };
 
 const prevHandler = () => {
-  const slides = slideContainer.value.querySelectorAll('.slide-item');
-  for (const item of slides) {
-    if (item.classList.contains('actived')) {
-      item.classList.remove('actived');
-      if (item.previousElementSibling) {
-        item.previousElementSibling.classList.add('actived');
-      } else {
-        slides[slides.length - 1].classList.add('actived');
-      }
-      break;
-    }
-  }
+  const newIndex = (activeSlideIndex.value - 1 + slides.value.length) % slides.value.length;
+  updateActiveSlide(newIndex);
 };
 
 const nextHandler = () => {
-  const slides = slideContainer.value.querySelectorAll('.slide-item');
-  for (const item of slides) {
-    if (item.classList.contains('actived')) {
-      item.classList.remove('actived');
-      if (item.nextElementSibling) {
-        item.nextElementSibling.classList.add('actived');
-      } else {
-        slides[0].classList.add('actived');
-      }
-      break;
-    }
-  }
+  const newIndex = (activeSlideIndex.value + 1) % slides.value.length;
+  updateActiveSlide(newIndex);
+};
+
+const bulletHandler = (index) => {
+  updateActiveSlide(index);
 };
 
 onMounted(() => {
-  if (slideContainer.value.querySelectorAll('.slide-item').length > 0) {
+  slides.value = slideContainer.value.querySelectorAll('.slide-item');
+  const initialActiveSlide = Array.from(slides.value).findIndex(slide => slide.classList.contains('actived'));
+  if (initialActiveSlide !== -1) {
+    activeSlideIndex.value = initialActiveSlide;
+  }
+  if (slides.value.length > 0) {
     startSlideAnimation();
   }
 });
@@ -89,6 +87,8 @@ section.slide-content(ref="slideContainer" :class="[type, border ? 'border' : ''
       | {{ t("to_left") }}
     button.btn.next(type="button" @click="nextHandler")
       | {{ t("to_right") }}
+  .slide-bullets(v-if="nav")
+    button.bullet(v-for="(slide, index) in slides" :key="index" :class="{ active: index === activeSlideIndex }" @click="bulletHandler(index)")
 </template>
 
 <style scoped lang="stylus">
@@ -161,4 +161,25 @@ section.slide-content(ref="slideContainer" :class="[type, border ? 'border' : ''
       transform translateX(5px) translateY(-50%) scale(1.2)
     &:before
       content "\f054"
+
+.slide-bullets
+  display flex
+  justify-content center
+  margin-top 10px
+  z-index 10
+  position absolute
+  bottom 20px
+  left 50%
+  transform translateX(-50%)
+  .bullet
+    width 30px
+    height 10px
+    border-radius 10px
+    background-color #fff
+    margin 0 5px
+    border 2px solid #fff
+    cursor pointer
+    &.active
+      background-color rgba(#444, 0.5)
+      cursor default
 </style>
