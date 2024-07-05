@@ -22,6 +22,8 @@ section
     SlideContent(name="Exemplo 1" type="infinite" :nav="true" :animation="{ 'disabled': true }")
       SlideItem(:title="t('city')" img="./assets/ermelino.jpg")
       SlideItem.favela.actived(:title="t('god_faith')" img="./assets/faveladascriancas.jpg")
+      SlideItem(img="./assets/motorcycle.jpg")
+      SlideItem(img="./assets/new-york.jpg")
     //- SlideSource
     //-   pre {{ text.one }}
   .example

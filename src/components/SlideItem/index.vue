@@ -33,26 +33,35 @@ export default {
   position absolute
   right 0
   top 0
-  transition .3s
+  transition 0.3s
+
   &.actived
-     opacity 1
-     z-index 1
-     h1
-       animation 3s opacityDelay
+    opacity 1
+    z-index 1
+    h1
+      animation 3s opacityDelay
+
+  *
+    pointer-events none
+
   a
     color #000
     text-decoration none
-  img, a
+
+  img
     min-width 100%
+    min-height 100%
+
   h1
-    background rgba(#fff, .2)
+    background rgba(255, 255, 255, 0.2)
     backdrop-filter blur(5px)
     text-shadow 1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff, 0 0 5px #fff
-    box-shadow 0 0 10px 5px rgba(#fff, .5)
+    box-shadow 0 0 10px 5px rgba(#fff, 0.5)
     font-size 2em
+    font-weight normal
     left 50%
-    padding .5em 0
     margin 0
+    padding 0.5em
     position absolute
     text-align center
     top 50%
@@ -66,4 +75,5 @@ export default {
     opacity 0
   100%
     opacity 1
+
 </style>

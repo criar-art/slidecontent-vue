@@ -17,6 +17,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "hammerjs": "^2.0.8",
     "pug": "^3.0.3",
     "stylus": "^0.63.0",
     "vue": "^3.4.31",
