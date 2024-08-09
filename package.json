@@ -20,9 +20,9 @@
     "hammerjs": "^2.0.8",
     "pug": "^3.0.3",
     "stylus": "^0.63.0",
-    "vue": "^3.4.35",
+    "vue": "^3.4.37",
     "vue-i18n": "^9.13.1",
-    "vue-router": "^4.4.2"
+    "vue-router": "^4.4.3"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.10.4",
@@ -30,13 +30,13 @@
     "@vue/eslint-config-prettier": "^9.0.0",
     "@vue/test-utils": "^2.4.6",
     "cypress": "^13.13.2",
-    "eslint": "^9.8.0",
+    "eslint": "^9.9.0",
     "eslint-plugin-cypress": "^3.4.0",
     "eslint-plugin-vue": "^9.27.0",
     "jsdom": "^24.1.1",
     "prettier": "^3.3.3",
     "start-server-and-test": "^2.0.5",
-    "vite": "^5.3.5",
+    "vite": "^5.4.0",
     "vitest": "^2.0.5"
   }
 }
